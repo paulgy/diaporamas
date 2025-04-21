@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>TraAM 2024-2025 - Évaluer en SES avec les communs numériques</title>
+
+    <link rel="stylesheet" href="../reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="../reveal.js/dist/theme/white.css"
+      id="theme"
+    />
+
+    <style>
+      /* Style de base commun pour les boutons personnalisés */
+      .custom-button {
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s,
+          color 0.2s;
+        text-align: center;
+        cursor: pointer; /* Ajoute un curseur pointeur */
+      }
+
+      /* Bouton Quiz - Règle plus spécifique */
+      .reveal .slides section a.quiz-button {
+        /* Sélecteur plus spécifique */
+        font-size: 26px;
+        background-color: #0062bb; /* Fond bleu */
+        color: white; /* Texte blanc */
+        padding: 15px 50px; /* Ajustement spécifique */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none; /* Assure qu'il n'y a pas de bordure par défaut */
+      }
+      .reveal .slides section a.quiz-button:hover {
+        /* Hover plus spécifique */
+        transform: translateY(-3px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        background-color: #00529b; /* Optionnel: bleu un peu plus foncé au survol */
+        color: white; /* Maintient le texte blanc au survol */
+      }
+
+      /* Bouton Consulter */
+      .reveal .slides section a.consulter-button {
+        /* Sélecteur plus spécifique */
+        font-size: 26px;
+        color: #0062bb;
+        border: 2px solid #0062bb;
+        background-color: transparent;
+      }
+      .reveal .slides section a.consulter-button:hover {
+        /* Hover plus spécifique */
+        background-color: #0062bb;
+        color: white;
+      }
+
+      /* Bouton PDF - Règle plus spécifique */
+      .reveal .slides section a.pdf-button {
+        /* Sélecteur plus spécifique */
+        font-size: 22px;
+        background-color: #0062bb; /* Fond bleu */
+        color: white; /* Texte blanc */
+        padding: 12px 24px; /* Ajustement spécifique */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none; /* Assure qu'il n'y a pas de bordure par défaut */
+      }
+      .reveal .slides section a.pdf-button:hover {
+        /* Hover plus spécifique */
+        transform: scale(1.05);
+        background-color: #00529b; /* Optionnel: bleu un peu plus foncé au survol */
+        color: white; /* Maintient le texte blanc au survol */
+      }
+
+      /* Correction pour listes */
+      section ol,
+      section ul {
+        margin: 1em auto;
+        text-align: left;
+        display: block;
+      }
+      section li {
+        margin-bottom: 0.5em;
+      }
+      /* Pour centrer le contenu de la slide globalement si besoin */
+      .reveal .slides section > * {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      /* === Style pour la Bande d'En-tête (Style Ancien Header) === */
+      .slide-header {
+        position: fixed;
+        top: 0; /* Collé en haut (ou top: 10px; si vous préférez garder la marge) */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff; /* Fond blanc (équiv. bg-white) */
+        padding: 1rem; /* Padding 1rem (équiv. p-4) */
+        z-index: 500;
+        box-sizing: border-box;
+        /* Ombre portée (équiv. shadow-md) */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        /* Supprimer l'ancienne bordure si elle existait */
+        border-bottom: none;
+
+        /* Optionnel: Si vous avez plusieurs éléments à aligner comme avant */
+        /* display: flex; */
+        /* justify-content: space-between; */ /* Si vous avez un élément à gauche et un à droite */
+        /* align-items: center; */
+      }
+
+      /* Style pour le titre H1 dans l'en-tête */
+      .slide-header .slide-title {
+        /* Cible le H1 avec la classe .slide-title */
+        font-size: 1.5rem; /* Taille texte (équiv. text-2xl) */
+        line-height: 1.75rem; /* Hauteur de ligne souvent associée */
+        font-weight: 700; /* Gras (équiv. font-bold) */
+        color: #1f2937; /* Couleur texte standard (gris foncé) */
+        margin: 0; /* Supprimer marges par défaut du H1 */
+        text-transform: none; /* <- AJOUTÉ: Empêche la transformation de la casse */
+      }
+      /* === Fin Style Bande d'En-tête === */
+
+      /* ... (gardez les autres styles .custom-button etc que vous aviez déjà) ... */
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <header class="slide-header">
+        <h1 class="slide-title">TraAM 2024-2025</h1>
+      </header>
+      <div class="slides">
+        <section>
+          <div style="padding: 40px; text-align: center">
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 30px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Évaluer en SES avec les communs numériques : une approche
+              collaborative et interactive pour améliorer les apprentissages.
+            </div>
+            <p style="font-size: 24px; color: #666">Bordeaux - Limoges</p>
+          </div>
+          <div
+            style="
+              position: absolute;
+              bottom: 10px;
+              left: 0;
+              right: 0;
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                display: inline-flex;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.05);
+                padding: 5px 12px;
+                border-radius: 15px;
+                font-size: 13px;
+                color: #666;
+              "
+            >
+              <span style="margin-right: 5px">←</span>
+              Utilisez les flèches du clavier pour naviguer
+              <span style="margin-left: 5px">→</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div style="padding: 40px; text-align: center; text-transform: none">
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 30px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              4 objectifs :
+            </div>
+            <ol style="font-size: 22px; line-height: 1.6">
+              <li>
+                Développer les pratiques collaboratives avec les communs
+                numériques
+              </li>
+              <li>
+                Créer des parcours interactifs pour améliorer et différencier
+                les apprentissages.
+              </li>
+              <li>
+                Développer les compétences numériques en termes de traitement
+                des données statistiques.
+              </li>
+              <li>
+                Explorer les potentialités de l'intelligence artificielle pour
+                améliorer l'évaluation en SES
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section>
+          <div style="padding: 30px; text-align: left; max-width: 900px">
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 25px;
+                font-weight: bold;
+                text-align: center;
+                text-transform: none;
+              "
+            >
+              Parcours Grand Oral sur Moodle
+            </div>
+
+            <div style="display: flex; gap: 30px">
+              <div style="flex: 1">
+                <h2
+                  style="
+                    font-size: 28px;
+                    color: #333;
+                    margin-bottom: 15px;
+                    text-transform: none;
+                  "
+                >
+                  Pourquoi un parcours en ligne ?
+                </h2>
+                <ul
+                  style="font-size: 22px; line-height: 1.4; padding-left: 20px"
+                >
+                  <li>Suivi individuel impossible en classe</li>
+                  <li>Planification sur l'année entière</li>
+                  <li>Visibilité sur l'implication des élèves</li>
+                  <li>Échanges facilités professeur-élève</li>
+                </ul>
+              </div>
+
+              <div style="flex: 1">
+                <h2
+                  style="
+                    font-size: 28px;
+                    color: #333;
+                    margin-bottom: 15px;
+                    text-transform: none;
+                  "
+                >
+                  Structure du parcours
+                </h2>
+                <ul
+                  style="font-size: 22px; line-height: 1.4; padding-left: 20px"
+                >
+                  <li><strong>6 sections</strong> thématiques</li>
+                  <li>Fiches d'informations et contenus multimédias</li>
+                  <li>Questionnaires d'autoévaluation</li>
+                  <li>Remise de travaux et forum d'échanges</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div style="padding: 30px; text-align: center; max-width: 900px">
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 30px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Les 6 sections du parcours Grand Oral
+            </div>
+
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                max-width: 700px;
+                margin: 0 auto;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  padding: 12px 20px;
+                  border-radius: 8px;
+                  background-color: #f0f7ff;
+                  border-left: 6px solid #0062bb;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background-color: #0062bb;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                  "
+                >
+                  0
+                </div>
+                <span style="font-size: 24px; font-weight: bold"
+                  >Présentation</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  padding: 12px 20px;
+                  border-radius: 8px;
+                  background-color: #e6f0fd;
+                  border-left: 6px solid #0062bb;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background-color: #0062bb;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                  "
+                >
+                  1
+                </div>
+                <span style="font-size: 24px; font-weight: normal"
+                  >Je fais le point sur ma situation</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  padding: 12px 20px;
+                  border-radius: 8px;
+                  background-color: #f0f7ff;
+                  border-left: 6px solid #0062bb;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background-color: #0062bb;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                  "
+                >
+                  2
+                </div>
+                <span style="font-size: 24px; font-weight: normal"
+                  >Je m'informe sur le Grand-Oral</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  padding: 12px 20px;
+                  border-radius: 8px;
+                  background-color: #e6f0fd;
+                  border-left: 6px solid #0062bb;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background-color: #0062bb;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                  "
+                >
+                  3
+                </div>
+                <span style="font-size: 24px; font-weight: normal"
+                  >Je travaille la communication verbale et non-verbale</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  padding: 12px 20px;
+                  border-radius: 8px;
+                  background-color: #f0f7ff;
+                  border-left: 6px solid #0062bb;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background-color: #0062bb;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                  "
+                >
+                  4
+                </div>
+                <span style="font-size: 24px; font-weight: normal"
+                  >Je formule un sujet pertinent</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  padding: 12px 20px;
+                  border-radius: 8px;
+                  background-color: #e6f0fd;
+                  border-left: 6px solid #0062bb;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background-color: #0062bb;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                  "
+                >
+                  5
+                </div>
+                <span style="font-size: 24px; font-weight: normal"
+                  >Je travaille le contenu</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  padding: 12px 20px;
+                  border-radius: 8px;
+                  background-color: #f0f7ff;
+                  border-left: 6px solid #0062bb;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background-color: #0062bb;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                  "
+                >
+                  6
+                </div>
+                <span style="font-size: 24px; font-weight: normal"
+                  >Je m'entraîne</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div style="padding: 30px; text-align: center; max-width: 900px">
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 35px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Ressources interactives du parcours
+            </div>
+
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+              "
+            >
+              <a
+                href="https://ent2d.ac-bordeaux.fr/disciplines/ses/2025/03/15/presentation-de-lepreuve-du-grand-oral/"
+                target="_blank"
+                style="
+                  font-size: 28px;
+                  color: #0062bb;
+                  text-decoration: underline;
+                  margin-bottom: 10px;
+                "
+              >
+                Présentation de l'épreuve du Grand Oral
+              </a>
+
+              <a
+                href="https://ent2d.ac-bordeaux.fr/disciplines/ses/2025/03/15/communication-verbale-et-non-verbale/"
+                target="_blank"
+                style="
+                  font-size: 28px;
+                  color: #0062bb;
+                  text-decoration: underline;
+                "
+              >
+                Communication verbale et non-verbale
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div style="padding: 30px; text-align: center; max-width: 900px">
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 45px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Identification des formes de visualisation de données statistiques
+            </div>
+
+            <a
+              href="https://www.macroeco.fr/traam/quizz_graph.html"
+              target="_blank"
+              class="custom-button quiz-button"
+            >
+              Quiz
+            </a>
+          </div>
+        </section>
+
+        <section>
+          <div style="padding: 30px; text-align: center; max-width: 900px">
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 45px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Règles essentielles pour l'usage de l'IA en éducation
+            </div>
+
+            <a
+              href="https://ent2d.ac-bordeaux.fr/disciplines/ses/regles-essentielles-pour-lusage-de-lia-en-education/"
+              target="_blank"
+              class="custom-button consulter-button"
+            >
+              Consulter
+            </a>
+          </div>
+        </section>
+
+        <section>
+          <div style="padding: 30px; text-align: center; max-width: 900px">
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 35px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              L'IA au service de l'évaluation en SES
+            </div>
+
+            <p
+              style="
+                font-size: 24px;
+                color: #333;
+                margin-bottom: 40px;
+                line-height: 1.4;
+              "
+            >
+              Explorer les potentialités de l'intelligence artificielle pour
+              améliorer les pratiques d'évaluation et favoriser la réussite des
+              élèves en Sciences Économiques et Sociales.
+            </p>
+
+            <a
+              href="https://filedn.eu/lOfC7DjLyXz7Y55GpTvy4lB/TraAM/Objectif4_IA_e%CC%81valuation_SES.pdf"
+              target="_blank"
+              class="custom-button pdf-button"
+            >
+              📄 Télécharger le PDF
+            </a>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              padding: 40px;
+              text-align: center;
+              max-width: 900px;
+              margin: auto;
+            "
+          >
+            <div
+              style="
+                font-size: 42px;
+                color: #0062bb;
+                margin-bottom: 35px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Des exercices intéractifs en SES
+            </div>
+
+            <p
+              style="
+                font-size: 24px;
+                color: #333;
+                margin-bottom: 45px;
+                line-height: 1.5;
+              "
+            >
+              Expérimentations pour les TraAM 2024-2025
+            </p>
+
+            <a
+              href="https://www.gyselinck.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="custom-button quiz-button"
+              style="font-size: 24px; padding: 15px 40px; text-decoration: none"
+            >
+              Accéder aux Exercices
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="../reveal.js/dist/reveal.js"></script>
+    <script src="../reveal.js/plugin/notes/notes.js"></script>
+    <script>
+      // Configuration de Reveal.js
+      Reveal.initialize({
+        hash: true, // Affiche le numéro de slide dans l'URL
+        // history: true, // Active l'historique du navigateur pour les slides
+
+        // Liste des plugins à activer
+        plugins: [RevealNotes], // Adaptez selon les plugins que vous avez chargés
+      });
+    </script>
+  </body>
+</html>
