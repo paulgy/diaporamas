@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>IA & SES : Un tour d'horizon des productions académiques</title>
+
+    <link rel="stylesheet" href="../reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="../reveal.js/dist/theme/white.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css" />
+
+    <style>
+      /* Styles repris de votre diapo1/index.html */
+      /* Style de base commun pour les boutons personnalisés */
+      .custom-button {
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s,
+          color 0.2s;
+        text-align: center;
+        cursor: pointer; /* Ajoute un curseur pointeur */
+      }
+
+      /* Bouton Quiz - Règle plus spécifique */
+      .reveal .slides section a.quiz-button {
+        /* Sélecteur plus spécifique */
+        font-size: 26px;
+        background-color: #0062bb; /* Fond bleu */
+        color: white; /* Texte blanc */
+        padding: 15px 50px; /* Ajustement spécifique */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none; /* Assure qu'il n'y a pas de bordure par défaut */
+      }
+      .reveal .slides section a.quiz-button:hover {
+        /* Hover plus spécifique */
+        transform: translateY(-3px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        background-color: #00529b; /* Optionnel: bleu un peu plus foncé au survol */
+        color: white; /* Maintient le texte blanc au survol */
+      }
+
+      /* Bouton Consulter */
+      .reveal .slides section a.consulter-button {
+        /* Sélecteur plus spécifique */
+        font-size: 26px;
+        color: #0062bb;
+        border: 2px solid #0062bb;
+        background-color: transparent;
+      }
+      .reveal .slides section a.consulter-button:hover {
+        /* Hover plus spécifique */
+        background-color: #0062bb;
+        color: white;
+      }
+
+      /* Bouton PDF - Règle plus spécifique */
+      .reveal .slides section a.pdf-button {
+        /* Sélecteur plus spécifique */
+        font-size: 22px;
+        background-color: #0062bb; /* Fond bleu */
+        color: white; /* Texte blanc */
+        padding: 12px 24px; /* Ajustement spécifique */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none; /* Assure qu'il n'y a pas de bordure par défaut */
+      }
+      .reveal .slides section a.pdf-button:hover {
+        /* Hover plus spécifique */
+        transform: scale(1.05);
+        background-color: #00529b; /* Optionnel: bleu un peu plus foncé au survol */
+        color: white; /* Maintient le texte blanc au survol */
+      }
+
+      /* Correction pour listes */
+      section ol,
+      section ul {
+        margin: 1em auto;
+        text-align: left;
+        display: block;
+      }
+      section li {
+        margin-bottom: 0.5em;
+      }
+      /* Pour centrer le contenu de la slide globalement si besoin */
+      .reveal .slides section > * {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      /* === Style pour la Bande d'En-tête (Style Ancien Header) === */
+      .slide-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 1rem;
+        z-index: 500;
+        box-sizing: border-box;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        border-bottom: none;
+      }
+
+      .slide-header .slide-title {
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0;
+        text-transform: none;
+      }
+      /* === Fin Style Bande d'En-tête === */
+
+      /* Style spécifique pour la diapo de titre IA & SES si besoin */
+      .title-slide-ia-ses .main-title {
+        font-size: 52px; /* Un peu plus grand pour le titre principal */
+        color: #0062bb;
+        margin-bottom: 20px; /* Espacement réduit par rapport au modèle TraAM */
+        font-weight: bold;
+        text-transform: none;
+      }
+      .title-slide-ia-ses .subtitle {
+        font-size: 36px; /* Taille pour le sous-titre complet */
+        color: #333; /* Couleur plus foncée pour une bonne lisibilité */
+        margin-bottom: 30px;
+        line-height: 1.3;
+        font-weight: normal; /* Poids normal pour le sous-titre */
+        text-transform: none;
+      }
+      .title-slide-ia-ses .formation-info {
+        font-size: 22px;
+        color: #555; /* Couleur un peu plus douce */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <header class="slide-header">
+        <h1 class="slide-title">IA & SES : Productions académiques</h1>
+      </header>
+
+      <div class="slides">
+        <section class="title-slide-ia-ses" style="padding-top: 80px">
+          <div style="text-align: center; margin-bottom: 60px">
+            <div class="main-title">IA & SES</div>
+            <div class="subtitle">
+              Un tour d'horizon des productions académiques
+            </div>
+          </div>
+          <div
+            style="
+              position: absolute;
+              bottom: 10px;
+              left: 0;
+              right: 0;
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                display: inline-flex;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.05);
+                padding: 5px 12px;
+                border-radius: 15px;
+                font-size: 13px;
+                color: #666;
+              "
+            >
+              <span style="margin-right: 5px">←</span>
+              Utilisez les flèches du clavier pour naviguer
+              <span style="margin-left: 5px">→</span>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              padding: 30px 40px;
+              text-align: center;
+              max-width: 960px;
+              margin: auto;
+            "
+          >
+            <div
+              style="
+                font-size: 40px;
+                color: #0062bb;
+                margin-bottom: 15px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              L’intelligence artificielle au service du Grand Oral
+            </div>
+            <p
+              style="
+                font-size: 22px;
+                color: #555;
+                margin-bottom: 25px;
+                font-style: italic;
+              "
+            >
+              Académie de Grenoble
+            </p>
+            <p
+              style="
+                font-size: 20px;
+                color: #333;
+                margin-bottom: 35px;
+                line-height: 1.6;
+                text-align: left;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+              "
+            >
+              Cette ressource détaille comment mobiliser l'intelligence
+              artificielle pour la préparation du Grand Oral. Elle propose une
+              méthodologie incluant la recherche de sujets avec Perplexity à
+              l'aide de prompts spécifiques, la synthèse de documents via
+              ChatPDF, et l'entraînement à l'oral grâce à l'outil de
+              transcription Lokas de Framasoft. Un accent particulier est mis
+              sur l'usage critique de l'IA, la nécessaire protection des données
+              personnelles des élèves.
+            </p>
+            <a
+              href="https://ses-pedagogie.web.ac-grenoble.fr/ia/lintelligence-artificielle-au-service-du-grand-oral"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="custom-button consulter-button"
+              style="font-size: 22px"
+            >
+              Consulter la ressource
+            </a>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              padding: 30px 40px;
+              text-align: center;
+              max-width: 960px;
+              margin: auto;
+            "
+          >
+            <div
+              style="
+                font-size: 40px;
+                color: #0062bb;
+                margin-bottom: 15px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Méthodologie des épreuves du baccalauréat en SES
+            </div>
+            <p
+              style="
+                font-size: 22px;
+                color: #555;
+                margin-bottom: 25px;
+                font-style: italic;
+              "
+            >
+              Académie de Grenoble
+            </p>
+            <p
+              style="
+                font-size: 20px;
+                color: #333;
+                margin-bottom: 35px;
+                line-height: 1.6;
+                text-align: left;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+              "
+            >
+              En utilisant l'outil
+              <strong>ChatMD</strong> (Forge des Communs Numériques), l'académie
+              de Grenoble propose un agent conversationnel qui répond aux
+              questions des élèves sur la méthodologie de la dissertation, de
+              l'épreuve composée et du Grand Oral, en se basant sur un document
+              de référence.
+            </p>
+            <a
+              href="https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/9QHVOap3A#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="custom-button consulter-button"
+              style="font-size: 22px"
+            >
+              Consulter le chatbot
+            </a>
+          </div>
+        </section>
+        <section>
+          <section>
+            <div
+              style="
+                padding: 30px 40px;
+                text-align: center;
+                max-width: 960px;
+                margin: auto;
+              "
+            >
+              <div
+                style="
+                  font-size: 42px;
+                  color: #0062bb;
+                  margin-bottom: 15px;
+                  font-weight: bold;
+                  text-transform: none;
+                "
+              >
+                Exploration des Chatbots en SES : de ChatMD aux GPTs
+              </div>
+              <p
+                style="
+                  font-size: 24px;
+                  color: #555;
+                  margin-bottom: 25px;
+                  font-style: italic;
+                "
+              >
+                Académie de Lyon
+              </p>
+              <p
+                style="
+                  font-size: 20px;
+                  color: #333;
+                  margin-bottom: 35px;
+                  line-height: 1.6;
+                  text-align: left;
+                  max-width: 800px;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              >
+                <em> Pascal Cheynet</em> explore le potentiel des agents
+                conversationnels pour le suivi des progrès et la
+                personnalisation des apprentissages.
+              </p>
+              <p style="font-size: 18px; color: #777">
+                Utilisez la flèche vers le bas pour découvrir les différentes
+                approches.
+              </p>
+            </div>
+          </section>
+          <section>
+            <div
+              style="
+                padding: 30px 40px;
+                text-align: center;
+                max-width: 960px;
+                margin: auto;
+              "
+            >
+              <div
+                style="
+                  font-size: 36px;
+                  color: #0062bb;
+                  margin-bottom: 15px;
+                  font-weight: bold;
+                  text-transform: none;
+                "
+              >
+                1. Chatbots Traditionnels : Attendus du Baccalauréat
+              </div>
+              <p
+                style="
+                  font-size: 20px;
+                  color: #555;
+                  margin-bottom: 25px;
+                  font-style: italic;
+                "
+              >
+                Basé sur ChatMD (Forge des Communs Numériques)
+              </p>
+              <p
+                style="
+                  font-size: 18px;
+                  color: #333;
+                  margin-bottom: 30px;
+                  line-height: 1.6;
+                  text-align: left;
+                  max-width: 750px;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              >
+                Ce type de chatbot permet aux élèves de s'approprier les
+                attendus des épreuves du baccalauréat en interrogeant une base
+                de connaissances prédéfinie (un document CodiMD).
+              </p>
+              <a
+                href="https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/cjZ99a1URpSaT3ZqcHEvOQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="custom-button consulter-button"
+                style="font-size: 20px"
+              >
+                Consulter
+              </a>
+            </div>
+          </section>
+
+          <section>
+            <div
+              style="
+                padding: 30px 40px;
+                text-align: center;
+                max-width: 960px;
+                margin: auto;
+              "
+            >
+              <div
+                style="
+                  font-size: 36px;
+                  color: #0062bb;
+                  margin-bottom: 15px;
+                  font-weight: bold;
+                  text-transform: none;
+                "
+              >
+                2. Chatbots Hybrides : Exemple sur les Déciles
+              </div>
+              <p
+                style="
+                  font-size: 20px;
+                  color: #555;
+                  margin-bottom: 25px;
+                  font-style: italic;
+                "
+              >
+                ChatMD + API OpenAI
+              </p>
+              <p
+                style="
+                  font-size: 18px;
+                  color: #333;
+                  margin-bottom: 15px;
+                  line-height: 1.6;
+                  text-align: left;
+                  max-width: 750px;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              >
+                Ce chatbot sur les déciles combine la structure de ChatMD avec
+                la puissance d'une IA externe (via l'API d'OpenAI) pour générer
+                des réponses plus élaborées ou des explications.
+              </p>
+              <div
+                style="
+                  font-size: 16px;
+                  color: #d32f2f;
+                  background-color: #ffebee;
+                  border: 1px solid #ffcdd2;
+                  padding: 10px;
+                  border-radius: 5px;
+                  margin-bottom: 20px;
+                  max-width: 750px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  text-align: left;
+                "
+              >
+                <strong>Attention :</strong> Mot de passe requis (coûts liés aux
+                requêtes API OpenAI) <br />Contacter
+                <a
+                  href="mailto:Pascal.Cheynet@ac-lyon.fr"
+                  style="color: #d32f2f"
+                  >Pascal.Cheynet@ac-lyon.fr</a
+                >
+              </div>
+              <a
+                href="https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/PZ8h8iSlJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="custom-button consulter-button"
+                style="font-size: 20px"
+              >
+                Consulter
+              </a>
+            </div>
+          </section>
+
+          <section>
+            <div
+              style="
+                padding: 30px 40px;
+                text-align: center;
+                max-width: 960px;
+                margin: auto;
+              "
+            >
+              <div
+                style="
+                  font-size: 36px;
+                  color: #0062bb;
+                  margin-bottom: 15px;
+                  font-weight: bold;
+                  text-transform: none;
+                "
+              >
+                3. Chatbots Basés sur l'IA : GPT de Révision
+              </div>
+              <p
+                style="
+                  font-size: 20px;
+                  color: #555;
+                  margin-bottom: 25px;
+                  font-style: italic;
+                "
+              >
+                Modèle GPT personnalisé (OpenAI)
+              </p>
+              <p
+                style="
+                  font-size: 18px;
+                  color: #333;
+                  margin-bottom: 15px;
+                  line-height: 1.6;
+                  text-align: left;
+                  max-width: 750px;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              >
+                Un exemple de GPT personnalisé pour la révision du chapitre sur
+                "L'action publique pour l'environnement". Ces modèles offrent
+                une interaction plus fluide et peuvent être entraînés sur des
+                corpus spécifiques.
+              </p>
+              <div
+                style="
+                  font-size: 16px;
+                  color: #d32f2f;
+                  background-color: #ffebee;
+                  border: 1px solid #ffcdd2;
+                  padding: 10px;
+                  border-radius: 5px;
+                  margin-bottom: 20px;
+                  max-width: 750px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  text-align: left;
+                "
+              >
+                <strong>⚠️ Important :</strong> Un compte ChatGPT (gratuit ou
+                payant selon les fonctionnalités) est nécessaire.<br />
+                Pour une expérience plus immersive, le mode vocal est
+                recommandé.
+              </div>
+              <a
+                href="https://chatgpt.com/g/g-679b462f403881918692289db1a54ab9-l-action-publique-pour-l-environnement"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="custom-button consulter-button"
+                style="font-size: 20px"
+              >
+                Consulter
+              </a>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <div
+              style="
+                padding: 30px 40px;
+                text-align: center;
+                max-width: 960px;
+                margin: auto;
+              "
+            >
+              <div
+                style="
+                  font-size: 42px;
+                  color: #0062bb;
+                  margin-bottom: 15px;
+                  font-weight: bold;
+                  text-transform: none;
+                "
+              >
+                IA : Évaluation, Accompagnement Enseignant et Élève
+              </div>
+              <p
+                style="
+                  font-size: 24px;
+                  color: #555;
+                  margin-bottom: 25px;
+                  font-style: italic;
+                "
+              >
+                Académie de Strasbourg
+              </p>
+              <p
+                style="
+                  font-size: 20px;
+                  color: #333;
+                  margin-bottom: 35px;
+                  line-height: 1.6;
+                  text-align: left;
+                  max-width: 800px;
+                  margin-left: auto;
+                  margin-right: auto;
+                "
+              >
+                L'académie de Strasbourg explore comment l'intelligence
+                artificielle peut transformer l'évaluation et offrir une aide
+                tant aux enseignants dans la création de ressources qu'aux
+                élèves dans leurs apprentissages.
+              </p>
+              <p style="font-size: 18px; color: #777">
+                Utilisez la flèche vers le bas pour découvrir les applications
+                concrètes.
+              </p>
+            </div>
+          </section>
+          <section>
+            <div
+              style="
+                padding: 30px 40px;
+                text-align: left;
+                max-width: 960px;
+                margin: auto;
+              "
+            >
+              <h3
+                style="
+                  font-size: 36px;
+                  color: #0062bb;
+                  margin-bottom: 10px;
+                  font-weight: bold;
+                  text-transform: none;
+                  text-align: center;
+                "
+              >
+                1/ Du côté de l'enseignant
+              </h3>
+              <p
+                style="
+                  font-size: 22px;
+                  color: #444;
+                  margin-bottom: 25px;
+                  font-style: italic;
+                  text-align: center;
+                "
+              >
+                Faciliter la création de ressources et l'évaluation
+              </p>
+              <ul
+                style="
+                  font-size: 19px;
+                  color: #333;
+                  line-height: 1.7;
+                  list-style-position: outside;
+                  padding-left: 30px;
+                "
+              >
+                <li style="margin-bottom: 12px">
+                  <strong>QCM avec feedbacks pour Moodle :</strong> Rédaction de
+                  prompts et tutoriels pour une intégration facilitée.
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/terminale/creer-des-qcm-et-les-importer-dans-moodle-avec-une-ia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource</a
+                  >
+                </li>
+                <li style="margin-bottom: 12px">
+                  <strong>Création de QCM avec Quizwizard :</strong> Un outil
+                  pour générer rapidement des questionnaires.
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/premiere/creer-des-qcm-avec-une-ia-quizwizard/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource (Première)</a
+                  >
+                </li>
+                <li style="margin-bottom: 12px">
+                  <strong>Création de flashcards avec Quizwizard :</strong> Pour
+                  diversifier les supports de révision.
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/terminale/creer-des-flashcards-avec-une-ia-quizwizard/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource (Terminale)</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <div
+              style="
+                padding: 30px 40px;
+                text-align: left;
+                max-width: 960px;
+                margin: auto;
+              "
+            >
+              <h3
+                style="
+                  font-size: 36px;
+                  color: #0062bb;
+                  margin-bottom: 10px;
+                  font-weight: bold;
+                  text-transform: none;
+                  text-align: center;
+                "
+              >
+                2/ Du côté de l'élève
+              </h3>
+              <p
+                style="
+                  font-size: 22px;
+                  color: #444;
+                  margin-bottom: 25px;
+                  font-style: italic;
+                  text-align: center;
+                "
+              >
+                Accompagnement dans les apprentissages et la préparation aux
+                épreuves
+              </p>
+              <ul
+                style="
+                  font-size: 19px;
+                  color: #333;
+                  line-height: 1.7;
+                  list-style-position: outside;
+                  padding-left: 30px;
+                "
+              >
+                <li style="margin-bottom: 12px">
+                  <strong>Auto-évaluation (Introduction et EC1) :</strong>
+                  Utilisation d'IA (ex: via DuckDuckGo) pour un feedback
+                  formatif.
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/terminale/sautoevaluer-intro-et-ec1-avec-une-ia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource</a
+                  >
+                </li>
+                <li style="margin-bottom: 12px">
+                  <strong>Aide à la rédaction d'EC3 :</strong>
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/terminale/construire-une-ec3-avec-une-ia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource</a
+                  >
+                </li>
+                <li style="margin-bottom: 12px">
+                  <strong>Préparation au Grand Oral :</strong> L'IA comme
+                  partenaire pour s'entraîner et structurer ses idées.
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/terminale/preparer-le-grand-oral-avec-une-ia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource</a
+                  >
+                </li>
+                <li style="margin-bottom: 12px">
+                  <strong>Débattre avec l'IA :</strong> Pour affûter son
+                  argumentation et explorer des sujets (ex: méthode AEI,
+                  orientation).
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/terminale/debattre-avec-une-ia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource</a
+                  >
+                </li>
+                <li style="margin-bottom: 12px">
+                  <strong>Construction de cartes mentales :</strong> L'IA pour
+                  visualiser et organiser les connaissances.
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/terminale/construire-des-cartes-mentales-avec-une-ia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource</a
+                  >
+                </li>
+                <li style="margin-bottom: 12px">
+                  <strong>Aide à l'orientation :</strong> Interroger l'IA pour
+                  explorer les parcours et possibilités.
+                  <a
+                    href="https://pedagogie.ac-strasbourg.fr/ses/ressources-pedagogiques/terminale/preparer-son-orientation-avec-une-ia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #0062bb; text-decoration: underline"
+                    >Voir la ressource</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section>
+          <div
+            style="
+              padding: 30px 40px;
+              text-align: center;
+              max-width: 960px;
+              margin: auto;
+            "
+          >
+            <div
+              style="
+                font-size: 40px;
+                color: #0062bb;
+                margin-bottom: 15px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              IA pour l'Argumentation et l'Évaluation au Baccalauréat
+            </div>
+            <p
+              style="
+                font-size: 22px;
+                color: #555;
+                margin-bottom: 25px;
+                font-style: italic;
+              "
+            >
+              Académie d'Orléans-Tours
+            </p>
+            <p
+              style="
+                font-size: 20px;
+                color: #333;
+                margin-bottom: 35px;
+                line-height: 1.6;
+                text-align: left;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+              "
+            >
+              L'académie d'Orléans-Tours axe ses travaux sur la mobilisation de
+              l'IA pour développer les compétences argumentatives des élèves en
+              vue du baccalauréat, en exploitant notamment la capacité
+              conversationnelle des outils. Le projet met à disposition des
+              scénarios pédagogiques centrés sur la création et l'utilisation de
+              prompts pour l'évaluation formative, l'amélioration des épreuves
+              et la préparation au Grand Oral.
+            </p>
+            <a
+              href="https://nuage05.apps.education.fr/index.php/s/frDXT8GS3xZyxYi/download/TRAAM%20-%20Orleans-Tours.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="custom-button consulter-button"
+              style="font-size: 22px"
+            >
+              Consulter la présentation
+            </a>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              padding: 30px 40px;
+              text-align: center;
+              max-width: 960px;
+              margin: auto;
+            "
+          >
+            <h2
+              style="
+                font-size: 40px;
+                color: #0062bb;
+                margin-bottom: 40px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Structurer ses Prompts : Modèles ACTIF et CODM
+            </h2>
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                text-align: left; /* Contexte général d'alignement à gauche pour les enfants */
+                font-size: 22px;
+                line-height: 1.8;
+              "
+            >
+              <div style="flex-basis: 48%">
+                <h3
+                  style="
+                    color: #00529b;
+                    margin-bottom: 15px;
+                    /* text-align: center; */ /* Supprimé pour aligner à gauche */
+                    font-size: 28px;
+                  "
+                >
+                  A.C.T.I.F.
+                </h3>
+                <ul style="list-style-type: none; padding-left: 0">
+                  <li style="margin-bottom: 8px">
+                    <strong>A</strong> : Action
+                  </li>
+                  <li style="margin-bottom: 8px">
+                    <strong>C</strong> : Contexte
+                  </li>
+                  <li style="margin-bottom: 8px">
+                    <strong>T</strong> : Tonalité
+                  </li>
+                  <li style="margin-bottom: 8px">
+                    <strong>I</strong> : Identité
+                  </li>
+                  <li style="margin-bottom: 8px">
+                    <strong>F</strong> : Format
+                  </li>
+                </ul>
+              </div>
+
+              <div style="flex-basis: 48%">
+                <h3
+                  style="
+                    color: #00529b;
+                    margin-bottom: 15px;
+                    /* text-align: center; */ /* Supprimé pour aligner à gauche */
+                    font-size: 28px;
+                  "
+                >
+                  C.O.D.M.
+                </h3>
+                <ul style="list-style-type: none; padding-left: 0">
+                  <li style="margin-bottom: 8px">
+                    <strong>C</strong> : Contexte
+                  </li>
+                  <li style="margin-bottom: 8px">
+                    <strong>O</strong> : Objectif
+                  </li>
+                  <li style="margin-bottom: 8px">
+                    <strong>D</strong> : Difficulté
+                  </li>
+                  <li style="margin-bottom: 8px">
+                    <strong>M</strong> : Mission
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p
+              style="
+                font-size: 15px;
+                color: #777;
+                margin-top: 40px;
+                text-align: center;
+              "
+            >
+              <em
+                >Source :
+                <a
+                  href="https://nuage05.apps.education.fr/index.php/s/frDXT8GS3xZyxYi/download/TRAAM%20-%20Orleans-Tours.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Diaporama</a
+                >
+                de l'académie d'Orléans-Tours, page 17.</em
+              >
+            </p>
+          </div>
+        </section>
+        <section>
+          <div
+            style="
+              padding: 30px 40px;
+              text-align: center;
+              max-width: 960px;
+              margin: auto;
+            "
+          >
+            <div
+              style="
+                font-size: 40px;
+                color: #0062bb;
+                margin-bottom: 15px;
+                font-weight: bold;
+                text-transform: none;
+              "
+            >
+              Formation Magistère : Connaître, utiliser et enseigner l'IA
+            </div>
+            <p
+              style="
+                font-size: 22px;
+                color: #555;
+                margin-bottom: 25px;
+                font-style: italic;
+              "
+            >
+              Académie de Montpellier (DRANE)
+            </p>
+            <p
+              style="
+                font-size: 20px;
+                color: #333;
+                margin-bottom: 35px;
+                line-height: 1.6;
+                text-align: left;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+              "
+            >
+              L'académie de Montpellier propose via la DRANE un parcours de
+              formation intitulé "Connaître, utiliser et enseigner l'IA". Ce
+              cours est accessible en auto-inscription et vise à accompagner les
+              enseignants dans la découverte, la compréhension et l'intégration
+              pédagogique de l'intelligence artificielle.
+            </p>
+            <a
+              href="https://magistere.education.fr/ac-montpellier/course/view.php?id=13761"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="custom-button consulter-button"
+              style="font-size: 22px"
+            >
+              Accéder au parcours Magistère
+            </a>
+            <p style="font-size: 16px; color: #777; margin-top: 20px">
+              <em
+                >Un lien vers un parcours SES spécifique sera ajouté
+                ultérieurement.</em
+              >
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="../reveal.js/dist/reveal.js"></script>
+    <script src="../reveal.js/plugin/notes/notes.js"></script>
+    <script src="../reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes], // Assurez-vous que les plugins nécessaires sont listés
+      });
+    </script>
+  </body>
+</html>
